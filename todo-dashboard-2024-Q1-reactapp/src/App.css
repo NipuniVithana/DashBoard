@@ -1,0 +1,472 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  color: #9e9ea4;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden; /* Prevents vertical scrollbar on body */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'sidebar header header'
+    'sidebar welcome welcome'
+    'sidebar task activity'
+    'sidebar task task-priority';
+  grid-template-columns: 272px 1fr 1fr;
+  grid-template-rows: 80px auto 1fr 1fr;
+  gap: 20px;
+  height: 100vh;
+  overflow: hidden; /* Prevents vertical scrollbar */
+}
+
+/* Sidebar */
+#sidebar {
+  grid-area: sidebar;
+  background: #33074F;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  overflow-y: auto;
+  transition: all 0.5s;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #EBE6ED1A;
+  padding: 0 16px;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-icon {
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.sidebar-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 60px;
+}
+
+.sidebar-list-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: #EBE6ED1A;
+  border-radius: 24px 0px 0px 0px;
+  margin: 8px 16px;
+}
+
+.sidebar-list-item a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.sidebar-list-item-icon {
+  color: #FFFFFF;
+}
+
+.sidebar-list-item-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+/* Header */
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 0 20px;
+  box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icon {
+  font-size: 20px;
+  color: #000000;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-image1 {
+  width: 30px;
+  height: 30px;
+  border-radius: 40%;
+}
+
+/* Welcome section */
+.welcome {
+  grid-area: welcome;
+  border: 1px solid #D0D5DD;
+  background: #FFFFFF;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.welcome h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.welcome p {
+  margin: 8px 0;
+  color: #757575;
+  font-size: 14px;
+}
+
+.welcome a {
+  color: #BC006D;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.cross {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+}
+
+/* Task section */
+.task {
+  grid-area: task;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Ensure children stack vertically */
+  overflow-y: hidden; /* Remove scroll bar */
+  height: calc(100vh - 160px); /* Adjust based on header and padding */
+}
+
+.task h2 {
+  margin-top: 0; /* Removes the top margin */
+  width: 45px; /* Sets the width to 45px */
+  height: 24px; /* Sets the height to 24px */
+  
+  font-family: 'Inter', sans-serif; /* Sets the font family */
+  font-size: 16px; /* Sets the font size */
+  font-weight: 500; /* Sets the font weight */
+  line-height: 24px; /* Sets the line height */
+  text-align: left; /* Sets text alignment */
+  color: #000000; /* Sets the background color */
+  /* gap: 8px; This property is not applicable for h2 itself, but for containers */
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Added margin reset */
+  flex-grow: 1; /* Allow the list to grow and fill available space */
+  overflow-y: hidden; /* Remove scroll bar */
+  height: 100%; /* Ensure the list takes full available height */
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-item.low .priority {
+  color: blue;
+}
+
+.task-item.medium .priority {
+  color: yellow;
+}
+
+.task-item.high .priority {
+  color: red;
+}
+
+.task-name {
+  flex-grow: 1; /* Allows the element to grow and fill available space */
+  width: 301px; /* Sets the width to 301px */
+  height: 24px; /* Sets the height to 24px */
+  top: 12px; /* Sets the top position to 12px */
+  left: 44px; /* Sets the left position to 44px */
+  gap: 0px; /* Sets the gap to 0 */
+  font-family: 'Inter', sans-serif; /* Sets the font family */
+  font-size: 14px; /* Sets the font size */
+  font-weight: 400; /* Sets the font weight */
+  line-height: 24px; /* Sets the line height */
+  text-align: left; /* Sets the text alignment */
+  color: #000000; /* Sets the background color */
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+}
+
+.priority {
+  width: 12px;
+  height: 12px;
+  top: 18px;
+  left: 10px;
+  
+  padding: 1px 1.27px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.mark-done {
+  width: 47px; /* Set width to 47px */
+  height: 26px; /* Set height to 26px */
+  padding: 2px 8px; /* Set padding */
+  gap: 6px; /* Set gap */
+  border-radius: 16px 0px 0px 0px; /* Set border radius */
+  
+  background: #E8F5E9; /* Set background color */
+  border: none; /* Remove border */
+  cursor: pointer; /* Set cursor to pointer */
+  color:#219653;
+  font-family: Inter; /* Set font family */
+  font-size: 12px; /* Set font size */
+  font-weight: 500; /* Set font weight */
+  line-height: 22px; /* Set line height */
+  text-align: center;
+}
+
+.mark-done:hover {
+  background-color: #45a049;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  list-style-type: none;
+  margin: 0; /* Reset margin */
+}
+
+.pagination li {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination li.active {
+  font-weight: bold;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Activity Feed */
+.activity-feed {
+  grid-area: activity;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 10px; /* Decrease padding */
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.activity-feed-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Decrease margin */
+  color: #333;
+}
+
+.activity-feed-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-feed-item {
+  margin-bottom: 5px; /* Decrease margin */
+  padding-bottom: 5px; /* Decrease padding */
+  border-bottom: 1px solid #eaeaea;
+}
+
+.activity-feed-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.activity-feed-item p {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.activity-feed-time {
+  display: block;
+  margin-top: 3px; /* Decrease margin */
+  font-size: 12px;
+  color: #9e9ea4;
+}
+
+/* Task Priority Chart */
+.task-priority {
+  grid-area: task-priority;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.task-priority h2 {
+  text-align: left;
+  margin-bottom: 10px;
+  color: #000000;
+  font-family: Inter;
+  font-size: 16px;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%; /* Adjust to parent width */
+  height: 150px; /* Adjust height */
+  gap: 0px;
+  opacity: 1; /* Ensure the chart is visible */
+}
+
+/* Medium <= 992px */
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'header'
+      'welcome'
+      'task'
+      'activity'
+      'task-priority';
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .task {
+    height: auto; /* Allow task section to expand as needed */
+  }
+
+  .task-list {
+    overflow-y: auto; /* Enable scroll on smaller screens */
+  }
+}
+
+/* Small <= 768px */
+@media screen and (max-width: 768px) {
+  .main-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+
+  .header {
+    padding: 0 10px; /* Decrease padding */
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+}
+
+/* Extra Small <= 576px */
+@media screen and (max-width: 576px) {
+  .header-left {
+    display: none;
+  }
+
+  .header-right {
+    gap: 5px;
+  }
+
+  .header-title {
+    font-size: 20px;
+  }
+
+  .task h2 {
+    font-size: 14px;
+  }
+
+  .task-name {
+    font-size: 12px;
+  }
+
+  .activity-feed-title {
+    font-size: 14px;
+  }
+
+  .activity-feed-item p {
+    font-size: 12px;
+  }
+}
