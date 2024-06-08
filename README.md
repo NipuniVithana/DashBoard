@@ -25,7 +25,7 @@ Run the following command to install all the necessary dependencies:
 ```bash
 npm install
 npm run dev
-```bash
+
 
 
 
