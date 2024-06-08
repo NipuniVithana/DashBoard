@@ -19,17 +19,13 @@ Follow these instructions to set up and run the ReactApp on your local machine.
     cd reactapp
     ```
 
-### Install Dependencies
+### Install Dependencies and Run the application
 
 Run the following command to install all the necessary dependencies:
 ```bash
 npm install
+npm run dev
 ```bash
-###  Running the Project
 
-To run the project, run the following command:
-  ```bash
-   npm run dev
-  ```bash
 
 
